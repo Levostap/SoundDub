@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/1/WasapiRegister",
-      "program": "d:/1/WasapiRegister/build/Debug/outDebug",
+      "cwd": "d:/1/SoundDub/WasapiRegister",
+      "program": "d:/1/SoundDub/WasapiRegister/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

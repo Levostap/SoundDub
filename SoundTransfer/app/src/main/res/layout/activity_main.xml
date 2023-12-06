@@ -6,13 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/connect_button"
+        android:layout_width="223dp"
+        android:layout_height="66dp"
+        android:text="Connect"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="754dp" />
+
+    <EditText
+        android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:hint="192.168.1.2"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="522dp" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="220dp"
+        android:layout_height="254dp"
+        app:srcCompat="@android:drawable/ic_menu_sort_alphabetically"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="97dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
