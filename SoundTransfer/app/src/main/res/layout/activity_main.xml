@@ -10,9 +10,14 @@
         android:id="@+id/connect_button"
         android:layout_width="223dp"
         android:layout_height="66dp"
+        android:layout_marginTop="208dp"
         android:text="Connect"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="754dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -21,14 +26,19 @@
         android:ems="10"
         android:hint="192.168.1.2"
         android:inputType="text"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="522dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.626" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="220dp"
         android:layout_height="254dp"
-        app:srcCompat="@android:drawable/ic_menu_sort_alphabetically"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="97dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_sort_alphabetically" />
 </androidx.constraintlayout.widget.ConstraintLayout>

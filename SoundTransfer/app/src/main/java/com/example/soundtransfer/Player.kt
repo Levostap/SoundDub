@@ -10,11 +10,10 @@ import java.net.Socket
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-class Player(ip : String, port : Int) : Runnable {
+class Player(ip : String, port : Int) : Thread() {
     private val socket : Socket = Socket(ip, port)
     private var dis : DataInputStream = DataInputStream(BufferedInputStream(socket.getInputStream()))
-
-
+    var isMuted : Boolean = false
     override fun run(){
         val at = AudioTrack.Builder()
             .setAudioAttributes(
@@ -38,11 +37,12 @@ class Player(ip : String, port : Int) : Runnable {
         try{
             at.play()
             while(dis.read(buffer).also { count = it } > 0){
+                if(isInterrupted)break
                 var bBuffer = ByteBuffer.wrap(buffer).order(ByteOrder.LITTLE_ENDIAN)
                 for (i : Int in 0 until count step(4)){
                     bufferF[i / 4] = bBuffer.getFloat(i)
                 }
-                at.write(bufferF, 0, count / 4, AudioTrack.WRITE_BLOCKING)
+                if(!isMuted) at.write(bufferF, 0, count / 4, AudioTrack.WRITE_BLOCKING)
             }
         } catch (e : Exception){
             e.printStackTrace()

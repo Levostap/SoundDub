@@ -1,5 +1,6 @@
 package com.example.soundtransfer
 
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioManager
@@ -18,9 +19,6 @@ import java.net.ServerSocket
 import java.net.Socket
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-
-
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var loadButton : Button
@@ -36,10 +34,14 @@ class MainActivity : AppCompatActivity() {
         val policy = ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
         loadButton.setOnClickListener {
-            val pl = Player(ipField.text.toString(), 7777)
-            val thread = Thread(pl)
-            thread.start()
+            val text : String = if(!ipField.text.isEmpty()){
+                ipField.text.toString()
+            } else{
+                ipField.hint.toString()
+            }
+            startActivity(Intent(this, PlayerActivity::class.java).apply {
+                putExtra("ip", text)
+            })
         }
     }
-
 }
